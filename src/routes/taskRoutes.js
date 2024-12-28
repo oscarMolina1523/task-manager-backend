@@ -1,11 +1,5 @@
 import express from 'express';
-import {
-  createTask,
-  deleteTask,
-  getTaskById,
-  getTasks,
-  updateTask
-} from '../controllers/taskController.js';
+import { createTask, deleteTask, getTaskById, getTasks, updateTask } from '../controllers/taskController.js';
 
 const router = express.Router();
 
