@@ -115,6 +115,9 @@ export const createTask = async (req, res) => {
  *               description:
  *                 type: string
  *                 example: Updated description of the task
+ *               completed:
+ *                 type: boolean
+ *                 example: false
  *     responses:
  *       200:
  *         description: Task updated
