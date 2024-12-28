@@ -11,7 +11,7 @@ const options = {
     },
     servers: [
       {
-        url: 'https://task-manager-backend-production-23f2.up.railway.app/', 
+        url: 'https://task-manager-backend-production-23f2.up.railway.app/api', 
       },
     ],
   },
