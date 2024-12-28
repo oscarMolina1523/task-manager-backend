@@ -1,4 +1,13 @@
 import Task from '../models/taskModel.js';
+/**
+ * @swagger
+ * /tasks:
+ *   get:
+ *     summary: Get all tasks
+ *     responses:
+ *       200:
+ *         description: A list of tasks
+ */
 
 // Obtener todas las tareas
 export const getTasks = async (req, res) => {
@@ -12,6 +21,25 @@ export const getTasks = async (req, res) => {
   }
 };
 
+/**
+ * @swagger
+ * /tasks/{id}:
+ *   get:
+ *     summary: Get a task by ID
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Task ID
+ *     responses:
+ *       200:
+ *         description: The task
+ *       404:
+ *         description: Task not found
+ */
+
 // Obtener una tarea por ID
 export const getTaskById = async (req, res) => {
   try {
@@ -24,6 +52,29 @@ export const getTaskById = async (req, res) => {
     res.status(500).json({ message: 'Error fetching task', error });
   }
 };
+
+/**
+ * @swagger
+ * /tasks:
+ *   post:
+ *     summary: Create a new task
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               title:
+ *                 type: string
+ *                 example: New Task
+ *               description:
+ *                 type: string
+ *                 example: Description of the task
+ *     responses:
+ *       201:
+ *         description: Task created
+ */
 
 // Crear una nueva tarea
 export const createTask = async (req, res) => {
@@ -39,6 +90,37 @@ export const createTask = async (req, res) => {
     res.status(500).json({ message: 'Error creating task', error });
   }
 };
+/**
+ * @swagger
+ * /tasks/{id}:
+ *   put:
+ *     summary: Update a task by ID
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Task ID
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               title:
+ *                 type: string
+ *                 example: Updated Task Title
+ *               description:
+ *                 type: string
+ *                 example: Updated description of the task
+ *     responses:
+ *       200:
+ *         description: Task updated
+ *       404:
+ *         description: Task not found
+ */
 
 // Actualizar una tarea
 export const updateTask = async (req, res) => {
@@ -54,6 +136,25 @@ export const updateTask = async (req, res) => {
     res.status(500).json({ message: 'Error updating task', error });
   }
 };
+
+/**
+ * @swagger
+ * /tasks/{id}:
+ *   delete:
+ *     summary: Delete a task by ID
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Task ID
+ *     responses:
+ *       200:
+ *         description: Task deleted successfully
+ *       404:
+ *         description: Task not found
+ */
 
 // Eliminar una tarea
 export const deleteTask = async (req, res) => {
