@@ -1,4 +1,6 @@
+import { authenticateToken } from '../middlewares/authMiddleware.js';
 import Task from '../models/taskModel.js';
+
 /**
  * @swagger
  * /tasks:
@@ -10,7 +12,7 @@ import Task from '../models/taskModel.js';
  */
 
 // Obtener todas las tareas
-export const getTasks = async (req, res) => {
+export const getTasks = [authenticateToken, async (req, res) => {
   try {
     const { completed } = req.query;
     const query = completed ? { completed: completed === 'true' } : {};
@@ -19,7 +21,7 @@ export const getTasks = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: 'Error fetching tasks', error });
   }
-};
+}];
 
 /**
  * @swagger
@@ -41,7 +43,7 @@ export const getTasks = async (req, res) => {
  */
 
 // Obtener una tarea por ID
-export const getTaskById = async (req, res) => {
+export const getTaskById = [authenticateToken, async (req, res) => {
   try {
     const task = await Task.findById(req.params.id);
     if (!task) {
@@ -51,7 +53,7 @@ export const getTaskById = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: 'Error fetching task', error });
   }
-};
+}];
 
 /**
  * @swagger
@@ -77,7 +79,7 @@ export const getTaskById = async (req, res) => {
  */
 
 // Crear una nueva tarea
-export const createTask = async (req, res) => {
+export const createTask = [ authenticateToken, async (req, res) => {
   try {
     const { title, description } = req.body;
     if (!title) {
@@ -89,7 +91,7 @@ export const createTask = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: 'Error creating task', error });
   }
-};
+}];
 /**
  * @swagger
  * /tasks/{id}:
@@ -126,7 +128,7 @@ export const createTask = async (req, res) => {
  */
 
 // Actualizar una tarea
-export const updateTask = async (req, res) => {
+export const updateTask = [authenticateToken, async (req, res) => {
   try {
     const { id } = req.params;
     const updates = req.body;
@@ -138,7 +140,7 @@ export const updateTask = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: 'Error updating task', error });
   }
-};
+}];
 
 /**
  * @swagger
@@ -160,7 +162,7 @@ export const updateTask = async (req, res) => {
  */
 
 // Eliminar una tarea
-export const deleteTask = async (req, res) => {
+export const deleteTask = [authenticateToken, async (req, res) => {
   try {
     const { id } = req.params;
     const task = await Task.findByIdAndDelete(id);
@@ -171,4 +173,4 @@ export const deleteTask = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: 'Error deleting task', error });
   }
-};
+}];

@@ -11,11 +11,26 @@ const options = {
     },
     servers: [
       {
-        url: 'https://task-manager-backend-production-23f2.up.railway.app/api', 
+        // url: 'https://task-manager-backend-production-23f2.up.railway.app/api', 
+        url: 'http://localhost:5000/api',
+      },
+    ],
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'JWT',
+        },
+      },
+    },
+    security: [
+      {
+        bearerAuth: [],
       },
     ],
   },
-  apis: ['./src/routes/*.js', './src/controllers/*.js'], 
+  apis: ['./src/routes/*.js', './src/controllers/*.js'],
 };
 
 const swaggerSpec = swaggerJsdoc(options);
