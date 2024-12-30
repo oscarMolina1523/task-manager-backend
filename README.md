@@ -66,6 +66,22 @@
 
 ###
 
+
+<h4 align="left">- POST /api/register</h4>
+
+###
+
+<p align="left">Crea una nueva cuenta.<br><br>Valida que los campos email y password sean validos.</p>
+
+###
+<h4 align="left">- POST /api/login</h4>
+
+###
+
+<p align="left">Valida un inicio de sesion.</p>
+
+###
+
 <h3 align="left">Requerimientos Técnicos</h3>
 
 ###
@@ -150,7 +166,7 @@
 
 ###
 
-<p align="left">/task-manager-backend<br>├── controllers<br>│   └── taskController.js<br>├── models<br>│   └── taskModel.js<br>├── routes<br>│   └── taskRoutes.js<br>├── middlewares<br>│   └── errorHandler.js<br>├── config<br>│   └── db.js<br>├── utils<br>│   └── swagger.js<br>├── app.js<br>├── package.json<br>├── server.js<br>├── .env</p>
+<p align="left">/task-manager-backend<br>├── controllers<br>│   └── taskController.js <br>│ └── authController.js<br>├── models<br>│   └── taskModel.js <br>│   └── userModel.js<br>├── routes<br>│   └── taskRoutes.js <br>│   └── authRoutes.js<br>├── middlewares<br>│   └── errorHandler.js <br>│   └── authMiddleware.js<br>├── config<br>│   └── db.js<br>├── utils<br>│   └── swagger.js<br>├── app.js<br>├── package.json<br>├── server.js<br>├── .env</p>
 
 ###
 
