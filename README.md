@@ -6,7 +6,7 @@
 
 ###
 
-<p align="left">Task Manager es una API RESTful desarrollada para gestionar tareas. Proporciona las operaciones esenciales para crear, leer, actualizar y eliminar tareas, con un diseño robusto y escalable.</p>
+<p align="left">Task Manager es una API RESTful desarrollada para gestionar tareas. Proporciona las operaciones esenciales para crear, leer, actualizar y eliminar tareas, con un diseño robusto y escalable. Cuenta con authentiacion y proteccion de Endpoints atraves de JWT</p>
 
 ###
 
